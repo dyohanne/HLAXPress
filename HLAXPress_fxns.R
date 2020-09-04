@@ -1007,7 +1007,7 @@ collapseUMIs <- function(allUMIs,distCutOff=1){
 #' @param writeTo directory where results should be written. If not given, current working directory is used.
 
 
-#' @return Intermediate and final Results in a director inside writeTo for each sample. Function does not return other values. The main result, allele-specific expression counts, is in file named sampleName_UMI_countingReport.txt for each sample (on column named nAlleleUMIs_keySitesFromAllGenes). Detailed information about each UMI evaluated is provided in sampleName_UMIdetails.txt file.
+#' @return Intermediate and final Results are written in a directory inside writeTo for each sample. Function does not return other values. The main result, allele-specific expression counts, is in file named sampleName_UMI_countingReport.txt for each sample (on column named nAlleleUMIs_keySitesFromAllGenes). Detailed information about each UMI evaluated is provided in sampleName_UMIdetails.txt file.
 #'
 #' 
 
