@@ -18,8 +18,10 @@
 
 		- no need to make it runnable from command line using R script; instead that can be added later when the typing is included or when this
 			- done to run from function or from command line, tested both with illumina data, works good.
-		- method is reported, writing method part
-			- do next
+		 
+		- writing method part
+			- do next, START HERE
+
 		- For now it is just enough to have the functions in one file, and show how it can be used by calling from another file called testRun.R with example files
 			-done
 		- So I just need to write a description of the arguments, done
@@ -34,11 +36,13 @@
 
 
 	- create a git for the script
-		- do next
+		- done
 	- try to use example data (smaller size) and put on the same directory
 		-done
 	- push to github
-		-do next
+		-done
+	- write github ReadMe
+		-done
 
 
 
