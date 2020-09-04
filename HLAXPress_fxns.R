@@ -588,9 +588,6 @@ getUMIreadsKeySitesAccuracy <- function(umiRead,umiReadQuality,referenceSequence
 
 probOfBaseGivenAlleleAtPosition <- function(readBases,readQualities,refBase){
   
-  # where a read does not cover a key position in the pileup at the position, it is given the least possible base probability
-  
-  
   selectedIdx <- which(!is.na(readQualities))
   readQualities <- readQualities[selectedIdx]
   readBases <- readBases[selectedIdx]
@@ -644,13 +641,6 @@ probOfBaseGivenAlleleAtPosition <- function(readBases,readQualities,refBase){
     # for now we just use the previous pUMIbasesGivenAlleleBase calculated from most frequent base, but this second approach can be tested.
     #pUMIbasesGivenAlleleBase <- probOfAllBases[which(names(probOfAllBases)==refBase)]
     
-    
-    
-    
-    
-    
-    
-    
   }
   
   pUMIbasesGivenAlleleBase
@@ -661,7 +651,6 @@ probOfBaseGivenAlleleAtPositionOld <- function(readBases,readQualities,refBase){
   
   # where a read does not cover a key position in the pileup at the position, it is given the least possible base probability
   
-  
   #selectedIdx <- which(!is.na(readQualities))
   #readQualities <- readQualities[selectedIdx]
   #readBases <- readBases[selectedIdx]
@@ -671,7 +660,6 @@ probOfBaseGivenAlleleAtPositionOld <- function(readBases,readQualities,refBase){
   #selIdx <- which(readBases != "-")
   #readQualities <- readQualities[selIdx]
   #readBases <- readBases[selIdx]
-  
   
   
   # probability of the match being right is 1-e; while a mismatching base has e/3 prob 
