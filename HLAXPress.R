@@ -12,15 +12,12 @@
 # Makes all allele UMI counting at 4 digit HLA allele level instead of 6 digit HLA allele level
 # Uses personalized HLA reference for allele-specific expression estimation
 
-
 #________________________________________ Include all HLAXPress functions ___________________________________________________####
 source("HLAXPress_fxns.R")
 
 cat(".............................................................................................","\n")
 
 #________________________________________ Parse-in arguments___________________________________________________####
-
-
 
 #Arguments :
 
@@ -48,7 +45,6 @@ cat("...........................................................................
   #length of the umi (default 10bp), for now only umi length is required, TSO+primer sequences are hardcoded and may need to be modified in the script by user
 
 
-
 # Create a parser
 p <- arg_parser("This script estimates allele specific expression using UMIs after HLA-alleles are determined",name="HLAXPress")
 
@@ -65,17 +61,7 @@ p <- add_argument(p, "--umiLen", help="length of the UMI",default=10)
 # Parse the command line arguments
 argv <- parse_args(p)
 
-
-# and add the path to last to environment path variable (install last if you don't have it)
-#export PATH=/projappl/project_2000416/last/bin:$PATH
-
-
-
-
-
 #________________________________________ Prepare to run analysis ____________________________________________ ####
-
-
 
 #get sample reads 
 entereddir <- argv$readDir
@@ -108,10 +94,6 @@ fileInput = argv$hlaTypesFile
 # HLA genes of interest for which the anlaysis is going to be done, this could by modified if needed
 genesOfInterest = c("HLA-A","HLA-B","HLA-C","HLA-DRA","HLA-DRB1","HLA-DRB3","HLA-DRB4","HLA-DRB5","HLA-DPA1","HLA-DPB1","HLA-DQA1","HLA-DQB1")
 geneNames = as.character(sapply(genesOfInterest,function(x) return(substr(x,5,nchar(x)))))
-
-
-
-
 
 #________________________________________ Run Allele-specific expression Analysis ____________________________________________ ####
 
