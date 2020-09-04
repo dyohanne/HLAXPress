@@ -12,9 +12,6 @@
 # Makes all allele UMI counting at 4 digit HLA allele level instead of 6 digit HLA allele level
 # Uses personalized HLA reference for allele-specific expression estimation
 
-# This file can be used to perform command-line based running of HLAXPress for sample34 as follows:
-  # Rscript HLAXPress.R /wrk/Illumina_Nextseq_cDNA/readsDirectory /wrk/totalHLADbreferenceFile /wrk/IlluminaHLAAllelesTable sample34 --readType illumina
-
 
 #________________________________________ Include all HLAXPress functions ___________________________________________________####
 source("HLAXPress_fxns.R")
