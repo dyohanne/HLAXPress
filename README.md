@@ -20,11 +20,11 @@ usage: HLAXPress [--help] [--hlaRef HLAREF] [--samName SAMNAME] [--readType READ
 # To see the help:
 Rscript HLAXPress.R -h
 
-# For illumina read data. 
-# This downloads the reference HLA database from IMGT/HLA and indexes is for use with LAST
+# For illumina read data. It performs the analysis for the two samples present in the HLA types file testData/testDataHLAs
+# This downloads the reference HLA database from IMGT/HLA and indexes it for use with LAST
 Rscript HLAXPress.R testData testData/testDataHLAs --hlaRef totalHLAdb/hladb --readType illumina
 
-# for nanopore data (three separate fastq.gz files in testData). 
+# for nanopore data (three separate fastq.gz files in testData). Analysis is done for single sample named BC01
 # We can use the already downloaded and indexed HLA reference data with --hlaRef
 Rscript HLAXPress.R testData testData/testDataNanoporeDataHLAs --samName BC01 --hlaRef totalHLAdb/hladb --readType nanopore
 
