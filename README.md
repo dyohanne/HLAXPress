@@ -12,7 +12,7 @@ export PATH=installation_Directory/last/bin:$PATH
 ```
 
 ## Usage
-Currently, HLAXPress can be run either from the command-line or from within R after loading all the necessary functions. To run from the command line, use R's Rscript by passing the required arguments: readDir, the directory where to find the sequence reads (in fastq or fastq.gz, file names MUST start with the same sampleName as in the HLA type information for that sample in hlaTypesFile followed by underscore), and hlaTypesFile, a file containing the HLA type information of each sample (one sample per row, first column is sampleName, next columns contain HLA alleles for the sample). Optional arguments like address to the last indexed HLA reference database and read type (illumina or nanopore) can also be passed. To do a test run for data given in the testData directory:  
+Currently, HLAXPress can be run either from the command-line or from within R after loading all the necessary functions. To run from the command line, use R's Rscript by passing the required arguments: readDir, the directory where to find the sequence reads (in fastq or fastq.gz, file names MUST start with the same sampleName as in the HLA type information for that sample in hlaTypesFile followed by underscore), and hlaTypesFile, a file containing the HLA type information of each sample (one sample per row, first column is sampleName, next columns contain HLA alleles for the sample). Optional arguments like address to the last indexed HLA reference database and read type (illumina or nanopore) can also be passed. To do a test run, assuming the read data and HLA type information are present in the testData directory:  
 
 ```
 usage: HLAXPress.R [--help] [--hlaRef HLAREF] [--samName SAMNAME] [--readType READTYPE] [--umiLen UMILEN] readDir hlaTypesFile
@@ -20,13 +20,13 @@ usage: HLAXPress.R [--help] [--hlaRef HLAREF] [--samName SAMNAME] [--readType RE
 # To see the help:
 Rscript HLAXPress.R -h
 
-# For illumina read data. It performs the analysis for the two samples present in the HLA types file testData/testDataHLAs
+# For illumina read data. It performs the analysis for two samples present in the HLA types file testData/testDataHLAs (assuming their fastq files are also present)
 # This downloads the reference HLA database from IMGT/HLA and indexes it for use with LAST
-Rscript HLAXPress.R testData testData/testDataHLAs --hlaRef totalHLAdb/hladb --readType illumina
+Rscript HLAXPress.R testData testData/testDataHLAs.txt --hlaRef totalHLAdb/hladb --readType illumina
 
-# for nanopore data (three separate fastq.gz files in testData). Analysis is done for single sample named BC01
+# for nanopore data (assuming three separate fastq.gz files in testData for template, complement and 2D reads). Analysis is done for single sample named BC01
 # We can use the already downloaded and indexed HLA reference data with --hlaRef
-Rscript HLAXPress.R testData testData/testDataNanoporeDataHLAs --samName BC01 --hlaRef totalHLAdb/hladb --readType nanopore
+Rscript HLAXPress.R testData testData/testDataNanoporeDataHLAs.txt --samName BC01 --hlaRef totalHLAdb/hladb --readType nanopore
 
 ```
 To run an analysis from within R:
@@ -36,7 +36,7 @@ To run an analysis from within R:
 source("HLAXPress_fxns.R")
 
 # Run the analysis for sample45 (which is illumina read data)
-getAlleleFreqCounts(sampleHlaData="testData/testDataHLAs",sampleId="sample45",IlluminaDir="testData/testData")
+getAlleleFreqCounts(sampleHlaData="testData/testDataHLAs.txt",sampleId="sample45",IlluminaDir="testData/testData")
 ```
 For detailed description of the arguments required, read the description of the getAlleleFreqCounts function in HLAXPress_fxns.R and the command-line arguments in HLAXPress.R. 
 
